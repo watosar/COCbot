@@ -56,7 +56,7 @@ ndn_pat = re.compile('([0-9]+)[dD]([0-9]+)')
 formula_pat = re.compile(*(
     f'[+]?{single}({compare}{single})?' 
     for numeric, operator
-    in ((f'-?({ndn_pat.pattern}|[0-9]+)','(->|<-|\*\*|//|[-+*/%])',),)
+    in ((f'-?({ndn_pat.pattern}|[0-9]+)','(->|<-|\\*\\*|//|[-+*/%])',),)
     for single, compare 
     in ((f'({numeric}({operator}{numeric})*)','(<=|>=|[<>=])',),)
     ))
