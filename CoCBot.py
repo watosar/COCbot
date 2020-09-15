@@ -108,9 +108,9 @@ class CocBotClient(Client):
         data = self.guild_handler.get_characollection(guild_id).url_dict
         text = f'0{json.dumps(data)}1'
         while len(text)>2000:
-            _text = text[:200]
+            _text = text[:2000]
             await ch.send(_text)
-            text = _text
+            text = text[:2000]
         if text:
             await ch.send(text)
         
