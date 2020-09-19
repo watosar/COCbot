@@ -215,7 +215,7 @@ class CommandsBody:
         target = targets[0]
         try:
             await self.chara_data_collection.set(target, url)
-        except ValueError as e:
+        except ValueError:
             return Response(400, 'urlが不正です')
         else:
             res = await self._edit_nick_for_chara(channel, target)

@@ -50,8 +50,7 @@ class ExInt:
         return ExInt(self._value**other._value)
 
     def __neg__(self):
-        self._value *= -1
-        return self
+        return ExInt(-self._value)
         
 
 ndn_pat = re.compile('([0-9]+)[dD]([0-9]+)')
