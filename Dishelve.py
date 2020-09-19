@@ -8,10 +8,10 @@ class DiShelve:
         return self.client.get_guild(self._shelve_guild_id)
 
     async def ready(self):
-        prepared_guild_id_set = set(int(i.name) for i in self._shelve_guild.channels) 
+        prepared_guild_id_set = set(i.name for i in self._shelve_guild.channels) 
         for g in self.client.guilds:
             if g.id == self._shelve_guild: continue
-            elif g.id not in prepared_guild_id_set:
+            elif str(g.id) not in prepared_guild_id_set:
                 ch = await self._shelve_guild.create_text_channel(name=g.id)
                 await ch.send("0{}1")
     
