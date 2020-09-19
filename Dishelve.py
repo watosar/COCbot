@@ -1,6 +1,3 @@
-
-import typing
-
 class DiShelve:
     def __init__(self, client, shelve_guild_id : int):
         self.client = client

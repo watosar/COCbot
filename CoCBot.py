@@ -42,9 +42,8 @@ class CocBotClient(Client):
         return characollection
         
     async def save(self, guild_id):
-        print('save start')
         data = self.guild_handler.get_characollection(guild_id).url_dict
-        self.dishelve.write(guild_id, json.dumps(data))
+        await self.dishelve.write(guild_id, json.dumps(data))
         
     async def on_message(self, msg):
         if msg.author == self.user:
