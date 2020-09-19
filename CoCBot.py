@@ -51,8 +51,7 @@ class CocBotClient(Client):
           return 
         if debug:
             if msg.author != self.owner:
-              return 
-        #print('msg is :', msg.content)
+              return
         if msg.guild and ('$' in msg.content or msg.content.startswith('set ')):
             guild_id = msg.guild.id
             
