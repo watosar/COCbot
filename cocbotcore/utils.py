@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 import re
 import random
-
 
 def dice_roll(count, size):
     return tuple(random.randint(1, int(size)) for _ in range(int(count)))
@@ -14,7 +12,7 @@ class ExInt:
     __slots__ = ('_value',)
     
     def __init__(self, value):
-        self._value = value
+        self._value = int(value)
         
     def __int__(self):
         return self._value
@@ -50,13 +48,16 @@ class ExInt:
     
     def __pow__(self, other):
         return ExInt(self._value**other._value)
+
+    def __neg__(self):
+        return ExInt(-self._value)
         
 
 ndn_pat = re.compile('([0-9]+)[dD]([0-9]+)')
 formula_pat = re.compile(*(
     f'[+]?{single}({compare}{single})?' 
     for numeric, operator
-    in ((f'-?({ndn_pat.pattern}|[0-9]+)','(->|<-|\*\*|//|[-+*/%])',),)
+    in ((f'-?({ndn_pat.pattern}|[0-9]+)','(->|<-|\\*\\*|//|[-+*/%])',),)
     for single, compare 
     in ((f'({numeric}({operator}{numeric})*)','(<=|>=|[<>=])',),)
     ))

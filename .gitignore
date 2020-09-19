@@ -9,3 +9,6 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 .vscode
+__pycache__/
+*.py[cod]
+*$py.class

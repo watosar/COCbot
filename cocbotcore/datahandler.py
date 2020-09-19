@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from .scrape import scrape
 from math import ceil
 
@@ -119,4 +118,3 @@ class MultiGuildHandler:
     def add_characollection(self, guild_id, data):
         self.characollections_dict[guild_id] = GuildCharaDataCollection(data)
         return self.characollections_dict[guild_id] 
-        
