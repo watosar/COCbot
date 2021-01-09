@@ -7,7 +7,7 @@ from Dishelve import DiShelve
  
 class CocBotClient(Client):
     def __init__(self):
-        super().__init__()
+        super().__init__(intents = Intents.all())
         self.owner = None
         self._data_guild_id = None
         self.guild_handler = MultiGuildHandler()
@@ -73,9 +73,7 @@ class CocBotClient(Client):
 
 debug = os.environ.get('debug',False)
 token = os.environ['token']
-intents = discord.Intents.all()
-client = CocBotClient(intents=intents)
-
+client = CocBotClient()
 
 if __name__ == '__main__':
     client.run(token)
