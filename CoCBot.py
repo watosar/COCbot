@@ -73,8 +73,10 @@ class CocBotClient(Client):
 
 debug = os.environ.get('debug',False)
 token = os.environ['token']
-client = CocBotClient()
+intents = discord.Intents.all()
+client = CocBotClient(intents=intents)
 
 
 if __name__ == '__main__':
     client.run(token)
+
