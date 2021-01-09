@@ -1,4 +1,4 @@
-from discord import Client
+from discord import Client, Intents
 import asyncio
 import os
 import json
@@ -73,7 +73,7 @@ class CocBotClient(Client):
 
 debug = os.environ.get('debug',False)
 token = os.environ['token']
-intents = discord.Intents.all()
+intents = Intents.all()
 client = CocBotClient(intents=intents)
 
 
