@@ -1,4 +1,4 @@
-from discord import Client
+from discord import Client, Intents
 import asyncio
 import os
 import json
